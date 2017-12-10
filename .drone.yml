@@ -1,0 +1,8 @@
+pipeline:
+  publish:
+    image: plugins/docker
+    repo: no0dles/mongodb-s3-backup
+    tags: ["${DRONE_TAG}", "latest"]
+    secrets: [ docker_username, docker_password ]
+    when:
+      event: tag
