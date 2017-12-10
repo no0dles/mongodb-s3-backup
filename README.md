@@ -10,7 +10,7 @@ docker run -e AWS_SECRET_ACCESS_KEY=abc \
 
 ## Environment variables
 | Name | Description | Default value | Required |
-| -- | -- | -- |
+| -- | -- | -- | -- |
 | MONGODB_HOST | MongoDB Host | localhost | no |
 | MONGODB_PORT | MongoDB Port | 27017 | no |
 | MONGODB_USERNAME | MongoDB Username  | - | no |
