@@ -5,4 +5,4 @@ RUN pip install awscli
 
 COPY backup.sh .
 
-ENTRYPOINT "./backup.sh"
+CMD "./backup.sh"
