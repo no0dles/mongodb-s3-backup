@@ -3,9 +3,13 @@ DEST=/tmp/backup
 TAR=/tmp/backup-$TIME.tar.gz
 
 mkdir -p $DEST
-mongodump -h $MONGODB_HOST -o $DEST
+mongodump --host $MONGODB_HOST \
+  --port $MONGODB_PORT \
+  --username $MONGODB_USERNAME \
+  --password $MONGODB_PASSWORD \
+  -o $DEST || { echo "mongodump failed"; exit 1; }
 
 cd $DEST
 tar -zcvf $TAR .
 
-aws s3 cp $TAR s3://$S3_BUCKET/
+aws s3 cp $TAR s3://$S3_BUCKET/ || { echo "aws upload failed"; exit 1; }
