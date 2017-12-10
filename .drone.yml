@@ -1,4 +1,9 @@
 pipeline:
+  build:
+    image: plugins/docker
+    repo: no0dles/mongodb-s3-backup
+    dry_run: true
+
   publish:
     image: plugins/docker
     repo: no0dles/mongodb-s3-backup

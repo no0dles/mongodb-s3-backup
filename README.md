@@ -8,7 +8,7 @@ docker run -e MONGODB_HOST mongodb://localhost -e AWS_SECRET_ACCESS_KEY abc -e A
 ## Environments
 | Name | Description |
 | -- | -- |
-| MONGODB_HOST | asd |
-| AWS_SECRET_ACCESS_KEY | asd |
-| AWS_ACCESS_KEY_ID | asd |
-| S3_BUCKET | asd |
+| MONGODB_HOST | MongoDB URI  |
+| AWS_SECRET_ACCESS_KEY | AWS Access Secret |
+| AWS_ACCESS_KEY_ID | AWS Access Key |
+| S3_BUCKET | AWS S3 Bucket name |
