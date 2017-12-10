@@ -3,11 +3,13 @@ pipeline:
     image: plugins/docker
     repo: no0dles/mongodb-s3-backup
     dry_run: true
+    pull_image: true
 
   publish:
     image: plugins/docker
     repo: no0dles/mongodb-s3-backup
     tags: ["${DRONE_TAG}", "latest"]
+    pull_image: true
     secrets: [ docker_username, docker_password ]
     when:
       event: tag
