@@ -3,11 +3,19 @@ DEST=/tmp/backup
 TAR=/tmp/backup-$TIME.tar.gz
 
 mkdir -p $DEST
-mongodump --host $MONGODB_HOST \
-  --port $MONGODB_PORT \
-  --username $MONGODB_USERNAME \
-  --password $MONGODB_PASSWORD \
-  -o $DEST || { echo "mongodump failed"; exit 1; }
+
+if [ -z "$MONGODB_USERNAME" ] 
+then
+  mongodump --host $MONGODB_HOST \
+    --port $MONGODB_PORT \
+    --username $MONGODB_USERNAME \
+    --password $MONGODB_PASSWORD \
+    -o $DEST || { echo "mongodump failed"; exit 1; }
+else
+  mongodump --host $MONGODB_HOST \
+    --port $MONGODB_PORT \
+    -o $DEST || { echo "mongodump failed"; exit 1; }
+fi
 
 cd $DEST
 tar -zcvf $TAR .
